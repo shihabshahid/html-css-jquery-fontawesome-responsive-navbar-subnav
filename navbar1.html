@@ -1,0 +1,122 @@
+<html>
+	<head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<style>
+			body{
+				margin:0px;
+				padding:0px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+			}
+			#nav{
+                margin: 0px;	
+			}
+			ul{
+				list-style:none;
+				padding:0px;
+			}
+			ul li{
+				float:left;
+				width:20%;
+				text-align:center;				
+			}
+			ul li a{
+				text-decoration:none;
+				background-color:green;
+				padding:15px 40px;
+				display:block;
+				color:white;			
+			}
+            ul li ul li{
+				width:100%;
+				text-align:center;			
+			}
+            ul li ul li a{
+				text-decoration:none;
+				background-color:rgb(47, 200, 47);
+				padding:15px 40px;
+				display:block;
+				color:white;			
+			}
+			ul li a:hover{
+				
+				background-color:lightgray;
+				color:green;				
+			}
+			ul li ul{
+				display:none;
+			}
+            #bar-area{
+                width: 100%;
+                height: 50px;
+                background-color: rgb(0, 20, 0);
+                display: none;
+                margin: 0px;
+                padding: 0px;
+            }
+			#bar{
+                color: white;
+                cursor: pointer;
+                position: absolute;
+				right: 4%;
+				top: 2%;
+				font-size: larger;
+            }
+            @media only screen and (max-width:640px) {
+                ul{
+                    margin: 0px;
+                }
+                ul li{
+                    width: 100%;  
+                }
+                #nav{
+                    display: none;
+                }
+                #bar-area{
+                    display: block;
+                    margin: 0px;
+                }
+            }
+		</style>
+	</head>
+	<body>
+        <div id="bar-area">
+			<i id="bar" class="fa-solid fa-bars"></i>
+		</div>
+        <div id="nav">
+            <ul id="manu">
+				<li><a href="#"><i class="fa-solid fa-house"></i> Menu 1</a></li>
+				<li><a href="#"><i class="fa-solid fa-address-card"></i> Menu 2</a></li>
+				<li id="sub-nav">
+                    <a href="#"><i class="fa-solid fa-list"></i> Menu 3</a>
+                    <ul>
+						<li><a href="#"><i class="fa-solid fa-minus"></i> Sub Menu 1</a></li>
+						<li><a href="#"><i class="fa-solid fa-minus"></i> Sub Menu 2</a></li>
+						<li><a href="#"><i class="fa-solid fa-minus"></i> Sub Menu 3</a></li>
+						<li><a href="#"><i class="fa-solid fa-minus"></i> Sub Menu 4</a></li>
+						<li><a href="#"><i class="fa-solid fa-minus"></i> Sub Menu 5</a></li>
+					</ul>
+                </li>
+				<li><a href="#"><i class="fa-solid fa-image"></i> Menu 4</a></li>
+				<li><a href="#"><i class="fa-solid fa-location-dot"></i> Menu 5</a></li>
+			</ul>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+                $("#sub-nav").click(function(){
+                    $("ul li ul").slideToggle();
+                });
+                $("#bar").click(function(){
+                    $("#nav").slideToggle();			
+                });
+				$(window).resize(function() {
+					//alert($(window).width());
+					if($(window).width()>640){
+						$("#nav").css("display","block");
+					}	
+				});
+					
+            });
+        </script>
+    </body>
+</html>
